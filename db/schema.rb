@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170826203929) do
+=======
+ActiveRecord::Schema.define(version: 20170826192017) do
+>>>>>>> 4728b37a161a04d07d58d7fb93ea55229ac534c0
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170826203929) do
     t.string "tags", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "tags", default: [], array: true
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
