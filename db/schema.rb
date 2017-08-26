@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170826192017) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "tags", array: true
+    t.text "tags", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
