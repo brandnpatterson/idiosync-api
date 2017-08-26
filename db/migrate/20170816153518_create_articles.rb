@@ -4,7 +4,7 @@ class CreateArticles < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :author
       t.string :content
-      
+      t.string :tags, array: true, default: []
       t.timestamps
     end
   end
