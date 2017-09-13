@@ -1,13 +1,23 @@
 class Api::V1::ArticlesController < ApplicationController
-  def index
-    @articles = Article.all
-    render json: @articles, status: :ok
-  end
 
   def create
     @article = Article.new(article_params)
     @article.save
     render json: @article, status: :created
+  end
+
+  def index
+    @articles = Article.all
+    render json: @articles, status: :ok
+  end
+
+  def update
+    @article = Article.where(id: params[:id]).first
+    if @article.update_attributes(article_params)
+      render json: @article, status: :ok
+    else
+      head(:unprocessable_entity)
+    end
   end
 
   def destroy
