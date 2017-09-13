@@ -10,6 +10,24 @@ class Api::V1::AuthorsController < ApplicationController
     render json: @author, status: :created
   end
 
+  def destroy
+    @author = Author.where(id: params[:id]).first
+    if @author.destroy
+      head(:ok)
+    else
+      head(:unprocessable_entity)
+    end
+  end
+
+  def update
+    @author = Author.where(id: params[:id]).first
+    if @author.update_attributes(author_params)
+      render json: @author, status: :ok
+    else
+      head(:unprocessable_entity)
+    end
+  end
+
   private
 
   def author_params
