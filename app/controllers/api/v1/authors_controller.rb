@@ -7,7 +7,7 @@ class Api::V1::AuthorsController < ApplicationController
   end
 
   def index
-    @authors = Author.all
+    @authors = Author.except('order').order("id ASC")
     render json: @authors, status: :ok
   end
 

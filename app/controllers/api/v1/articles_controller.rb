@@ -7,7 +7,7 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.except('order').order("id ASC")
     render json: @articles, status: :ok
   end
 
