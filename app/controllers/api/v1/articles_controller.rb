@@ -32,6 +32,6 @@ class Api::V1::ArticlesController < ApplicationController
   private
 
   def article_params
-    params.permit(:title, :author, :content, :tag_list)
+    params.permit(:title, :author_id, :content, :tag_list)
   end
 end

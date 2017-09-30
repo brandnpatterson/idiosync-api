@@ -17,16 +17,17 @@ ActiveRecord::Schema.define(version: 20170913140519) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.string "author"
-    t.string "content"
+    t.text "content"
     t.string "tags", default: [], array: true
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
-    t.string "bio"
+    t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

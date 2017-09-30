@@ -2,9 +2,9 @@ class CreateArticles < ActiveRecord::Migration[5.1]
   def change
     create_table :articles do |t|
       t.string :title
-      t.string :author
-      t.string :content
+      t.text :content
       t.string :tags, array: true, default: []
+      t.belongs_to :author, index: true
       t.timestamps
     end
   end
